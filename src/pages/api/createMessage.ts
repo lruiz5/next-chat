@@ -11,7 +11,7 @@ export default async function createMessage(req: NextApiRequest, res: NextApiRes
 
   const body = JSON.stringify({
     messages,
-    model: process.env.NEXT_PULIC_OPENAI_MODEL,
+    model: process.env.NEXT_PULIC_OPENAI_MODEL || "gpt-3.5-turbo",
     stream: false
   })
 
