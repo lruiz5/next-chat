@@ -4,6 +4,7 @@ export default async function createMessage(req: NextApiRequest, res: NextApiRes
   let { messages } = req.body
   messages += "Please limit the response to 90 words or less."
   const apiKey = process.env.NEXT_PUBLIC_OPENAI_KEY
+  const gptModel = process.env.NEXT_PUBLIC_OPENAI_MODEL || "gpt-3.5-turbo"
   const url = 'https://api.openai.com/v1/chat/completions';
 
   const controller = new AbortController();
@@ -11,7 +12,7 @@ export default async function createMessage(req: NextApiRequest, res: NextApiRes
 
   const body = JSON.stringify({
     messages,
-    model: process.env.NEXT_PULIC_OPENAI_MODEL || "gpt-3.5-turbo",
+    model: gptModel,
     stream: false
   })
 
