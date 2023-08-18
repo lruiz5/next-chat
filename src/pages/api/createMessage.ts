@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 
 export default async function createMessage(req: NextApiRequest, res: NextApiResponse) {
-  let { messages } = req.body
+  const { messages } = req.body
   const apiKey = process.env.NEXT_PUBLIC_OPENAI_KEY
   const gptModel = process.env.NEXT_PUBLIC_OPENAI_MODEL || "gpt-3.5-turbo"
   const url = 'https://api.openai.com/v1/chat/completions';
