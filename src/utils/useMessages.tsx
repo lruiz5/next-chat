@@ -41,8 +41,9 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     try {
       const newMessage: ChatCompletionRequestMessage = {
         role: 'user',
-        content
+        content: content?.replace(" Please limit the response to 90 words or less.", "")
       }
+  
       const newMessages = [...messages, newMessage]
 
       // Add the user message to the state so we can see it immediately

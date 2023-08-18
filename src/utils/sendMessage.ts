@@ -12,6 +12,6 @@ export const sendMessage = async (messages: ChatCompletionRequestMessage[]) => {
 
     return await response.json()
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
