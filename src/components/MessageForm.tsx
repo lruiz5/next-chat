@@ -8,7 +8,7 @@ const MessageForm = () => {
 
   const handleSubmit = async (e?: any) => {
     e?.preventDefault()
-    addMessage(content)
+    addMessage(content + " Please limit the response to 90 words or less.")
     setContent('')
   }
 
