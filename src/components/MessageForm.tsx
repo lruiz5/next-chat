@@ -1,19 +1,22 @@
 import { Button, TextArea } from "@apideck/components";
-import { useState } from 'react'
-import { useMessages } from 'utils/useMessages'
+import { useState } from "react";
+import { useMessages } from "utils/useMessages";
 
 const MessageForm = () => {
-  const [content, setContent] = useState('')
-  const { addMessage } = useMessages()
+  const [content, setContent] = useState("");
+  const { addMessage } = useMessages();
 
   const handleSubmit = async (e?: any) => {
-    e?.preventDefault()
-    addMessage(content + " Please limit the response to 90 words or less.")
-    setContent('')
-  }
+    e?.preventDefault();
+    addMessage(`${content} Please limit the response to 90 words or less.`);
+    setContent("");
+  };
 
   return (
-    <form className="relative mx-auto max-w-3xl rounded-t-xl" onSubmit={handleSubmit}>
+    <form
+      className="relative mx-auto max-w-3xl rounded-t-xl"
+      onSubmit={handleSubmit}
+    >
       <div className=" border-gray-200 h-[130px] rounded-t-xl backdrop-blur border-t border-l border-r border-gray-500/10 dark:border-gray-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 p-5">
         <label htmlFor="content" className="sr-only">
           Your message
@@ -50,7 +53,7 @@ const MessageForm = () => {
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default MessageForm
+export default MessageForm;
